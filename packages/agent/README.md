@@ -165,7 +165,26 @@ Inspect `.code` and `.response`.
 
 ## Status
 
-Spec at v0.1 draft. Breaking changes expected before v1.0.
+**v0.1 draft. Direct mode primitives shippable. Session mode signing
+works in code but is pointless until the on-chain session program
+deploys.**
+
+| Capability | Status | End-to-end usable today |
+| --- | --- | --- |
+| `mppFetch()` wrapper (auto-handles 402) | ✅ full impl + tests | ✅ for direct mode |
+| `buildDirectAuthorizationHeader` | ✅ — pair with your own Solana SDK | ✅ |
+| `signSessionDebit` + Ed25519 keypair signer | ✅ produces valid signed debits | ❌ no on-chain Session PDA to debit against |
+| Header parser (`parseChallenge`, `parseReceipt`) | ✅ via `@mppsol/core` | ✅ |
+| `keypairSigner` / `generateSigner` | ✅ | ✅ |
+
+Session-mode signing produces valid 104-byte debits + 64-byte Ed25519
+signatures that `@mppsol/server` accepts in tests. End-to-end, however,
+requires the [`@mppsol/cpi`](https://github.com/mppsol/cpi) on-chain
+program to exist so a user has a Session PDA to sign debits against.
+That program is blocked on a Solana toolchain issue; will deploy once
+Solana platform-tools v1.49+ ships.
+
+Breaking changes possible before v1.0.
 
 ## License
 
