@@ -1,6 +1,8 @@
 # @mppsol/core
 
-Shared TypeScript types and canonical encodings for [MPP.sol](https://github.com/mppsol/spec) —
+[![CI](https://github.com/mppsol/core/actions/workflows/ci.yml/badge.svg)](https://github.com/mppsol/core/actions/workflows/ci.yml)
+
+Shared TypeScript types and canonical encodings for [MPP.sol](https://mppsol.org) —
 the Machine Payments Protocol on Solana.
 
 This package is the dependency-free foundation that
