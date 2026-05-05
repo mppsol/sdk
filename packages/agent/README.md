@@ -1,5 +1,7 @@
 # @mppsol/agent
 
+[![CI](https://github.com/mppsol/agent/actions/workflows/ci.yml/badge.svg)](https://github.com/mppsol/agent/actions/workflows/ci.yml)
+
 Client SDK for paying [MPP.sol](https://mppsol.org)-priced HTTP resources
 on Solana. Drop-in `mppFetch()` wrapper that handles `402 Payment
 Required` automatically.
