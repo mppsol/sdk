@@ -163,6 +163,11 @@ Inspect `.code` and `.response`.
   [`spec/session.md`](https://github.com/mppsol/spec/blob/main/spec/session.md).
 - **Sequence persistence.** Caller responsibility.
 
+## Examples
+
+See [`examples/`](./examples/) for runnable clients in both direct mode
+(`pay-direct.ts`) and session mode (`pay-session.ts`).
+
 ## Status
 
 **v0.1 draft. Direct mode primitives shippable. Session mode signing
