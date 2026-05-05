@@ -72,7 +72,7 @@ export interface SolanaSessionReceipt {
 
 export type SolanaReceipt = SolanaDirectReceipt | SolanaSessionReceipt;
 
-// Off-chain debit message. 122 bytes when canonically serialized.
+// Off-chain debit message. 104 bytes when canonically serialized.
 // See spec/wire.md §4.2 and spec/session.md §4.2.
 export interface Debit {
   session: Uint8Array;

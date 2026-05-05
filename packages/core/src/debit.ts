@@ -2,7 +2,7 @@ import type { Debit } from './types.js';
 import { DEBIT_BYTE_LENGTH, DEBIT_DOMAIN_SEP } from './constants.js';
 
 // Canonical little-endian serialization of an off-chain debit message.
-// Layout (122 bytes):
+// Layout (104 bytes):
 //   session    [u8; 32]
 //   nonce      [u8; 32]
 //   amount      u64       (little-endian)

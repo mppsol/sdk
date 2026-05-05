@@ -26,7 +26,7 @@ export const SESSION_RETURN_DISCRIMINATOR: Uint8Array =
   Uint8Array.of(0x53, 0x45, 0x53, 0x31);
 
 // Canonical byte sizes.
-export const DEBIT_BYTE_LENGTH = 122;
+export const DEBIT_BYTE_LENGTH = 104;
 export const SESSION_PDA_BYTE_LENGTH = 234;
 export const PAY_RETURN_BYTE_LENGTH = 140;
 
