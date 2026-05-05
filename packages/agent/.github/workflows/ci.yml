@@ -11,39 +11,33 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [20, 22]
+        node-version: [20, 22]
 
     steps:
-      - name: Checkout @mppsol/agent
-        uses: actions/checkout@v4
-        with:
-          path: mppsol-agent
+      - uses: actions/checkout@v4
 
       # The package.json declares "@mppsol/core": "file:../mppsol-core".
-      # Until @mppsol/core is published to npm, clone it as a sibling so
-      # the file: dep resolves.
+      # Clone @mppsol/core as a sibling in the runner workspace directory
+      # so the file: dep resolves on CI.
       - name: Clone @mppsol/core (sibling for file: dep)
-        run: git clone --depth=1 https://github.com/mppsol/core.git mppsol-core
+        run: git clone --depth=1 https://github.com/mppsol/core.git ../mppsol-core
 
-      - name: Setup Node ${{ matrix.node }}
+      - name: Setup Node ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: ${{ matrix.node-version }}
 
       - name: Build @mppsol/core
-        working-directory: mppsol-core
+        working-directory: ../mppsol-core
         run: |
           npm install
           npm run build
 
-      - name: Install @mppsol/agent
-        working-directory: mppsol-agent
+      - name: Install
         run: npm install
 
-      - name: Build @mppsol/agent
-        working-directory: mppsol-agent
+      - name: Build
         run: npm run build
 
-      - name: Test @mppsol/agent
-        working-directory: mppsol-agent
+      - name: Test
         run: npm test
