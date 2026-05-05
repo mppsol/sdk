@@ -8,7 +8,7 @@ export type {
   MppFetchOptions,
 } from './types.js';
 
-// Header parse / serialize (will move to @mppsol/core in v0.2)
+// Header parse / serialize (re-exported from @mppsol/core for convenience)
 export {
   parseChallenge,
   serializeAuthorization,
@@ -16,7 +16,7 @@ export {
   parseChallengeError,
   b64urlEncode,
   b64urlDecode,
-} from './headers.js';
+} from '@mppsol/core';
 
 // Reference Ed25519 signer
 export { keypairSigner, generateSigner } from './signer.js';

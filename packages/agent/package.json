@@ -1,6 +1,6 @@
 {
   "name": "@mppsol/agent",
-  "version": "0.1.0-draft.1",
+  "version": "0.1.0-draft.2",
   "description": "MPP.sol — Client SDK for paying MPP-priced resources via Solana. Session mode end-to-end; direct mode primitives.",
   "type": "module",
   "main": "./dist/index.js",

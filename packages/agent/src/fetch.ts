@@ -1,4 +1,4 @@
-import { parseChallenge, parseChallengeError } from './headers.js';
+import { parseChallenge, parseChallengeError } from '@mppsol/core';
 import { buildDirectAuthorizationHeader } from './direct.js';
 import {
   buildSessionAuthorizationHeader,

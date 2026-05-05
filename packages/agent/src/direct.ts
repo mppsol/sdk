@@ -1,8 +1,9 @@
-import type {
-  SolanaChallenge,
-  SolanaDirectAuthorization,
+import {
+  b64urlEncode,
+  serializeAuthorization,
+  type SolanaChallenge,
+  type SolanaDirectAuthorization,
 } from '@mppsol/core';
-import { b64urlEncode, serializeAuthorization } from './headers.js';
 
 // Construct a direct-mode Authorization header value from the tx
 // signature returned by the caller's tx submission.

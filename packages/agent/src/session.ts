@@ -1,12 +1,14 @@
 import { base58 } from '@scure/base';
 import {
+  b64urlDecode,
+  b64urlEncode,
   DEBIT_DOMAIN_SEP,
   encodeDebit,
+  serializeAuthorization,
   type Base58Pubkey,
   type SolanaChallenge,
   type SolanaSessionAuthorization,
 } from '@mppsol/core';
-import { b64urlDecode, b64urlEncode, serializeAuthorization } from './headers.js';
 import type { Ed25519Signer, SequenceProvider } from './types.js';
 
 export interface SignedDebit {
