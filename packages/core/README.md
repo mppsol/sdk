@@ -72,7 +72,22 @@ const bytes = encodeDebit(debit);   // 122 bytes
 
 ## Status
 
-Spec is at v0.1 draft. Breaking changes expected before v1.0.
+**v0.1 draft, fully implemented and tested.** All wire-format types,
+encoders/decoders, and parsers ship as production code. 37 vitest tests
+passing. Breaking changes possible before v1.0.
+
+| Capability | Status |
+| --- | --- |
+| Wire types (`SolanaChallenge`, `SolanaAuthorization`, `SolanaReceipt`) | ✅ |
+| Header parser/serializer | ✅ |
+| Canonical 104-byte debit encoding (`encodeDebit` / `decodeDebit`) | ✅ |
+| On-chain account types (read-side) — `Session`, `PayReturn`, `SessionSettleReturn` | ✅ |
+| Constants (domain separators, well-known mints, defaults) | ✅ |
+| Errors (`MppErrorCode`, `MppSolError`) | ✅ |
+
+This is the foundation package — all other `@mppsol/*` packages depend
+on it. No runtime dep on `@solana/web3.js` or `@solana/kit`; pubkeys
+are exposed as base58 strings.
 
 ## License
 
