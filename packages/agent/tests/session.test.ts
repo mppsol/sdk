@@ -149,6 +149,32 @@ describe('keypairSigner', () => {
   });
 });
 
+describe('async Ed25519Signer', () => {
+  it('handles a signer whose sign() returns a Promise', async () => {
+    const inner = generateSigner();
+    const asyncSigner = {
+      publicKey: inner.signer.publicKey,
+      sign: async (msg: Uint8Array) => inner.signer.sign(msg),
+    };
+    const session = makeSessionPubkey();
+    const signed = await signSessionDebit({
+      challenge: makeChallenge(),
+      session,
+      signer: asyncSigner,
+      sequence: 1n,
+    });
+    expect(signed.signature.length).toBe(64);
+
+    // Round-trip verify with the inner sync signer's pubkey.
+    const ok = ed25519.verify(
+      signed.signature,
+      signed.debitBytes,
+      base58.decode(asyncSigner.publicKey),
+    );
+    expect(ok).toBe(true);
+  });
+});
+
 describe('resolveSequence', () => {
   it('handles sync providers', async () => {
     expect(await resolveSequence(() => 5n)).toBe(5n);
