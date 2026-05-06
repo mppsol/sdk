@@ -51,7 +51,7 @@ const debit: Debit = {
   domainSep: DEBIT_DOMAIN_SEP,
 };
 
-const bytes = encodeDebit(debit);   // 122 bytes
+const bytes = encodeDebit(debit);   // 104 bytes
 // sign `bytes` with the session's authorized_signer Ed25519 key,
 // send {session, debit: base64url(bytes), signature: base64url(sig)}
 // in the Authorization: Payment header.
