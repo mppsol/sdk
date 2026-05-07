@@ -1,6 +1,6 @@
 {
   "name": "@mppsol/core",
-  "version": "0.1.0-draft.2",
+  "version": "0.1.0-draft.4",
   "description": "MPP.sol — Shared types and canonical encodings for the Machine Payments Protocol on Solana.",
   "type": "module",
   "main": "./dist/index.js",
