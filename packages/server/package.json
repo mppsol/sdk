@@ -42,11 +42,12 @@
   ],
   "homepage": "https://mppsol.org",
   "bugs": {
-    "url": "https://github.com/mppsol/server/issues"
+    "url": "https://github.com/mppsol/sdk/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mppsol/server.git"
+    "url": "git+https://github.com/mppsol/sdk.git",
+    "directory": "packages/server"
   },
   "author": "psyto <saito.hiroyuki@gmail.com> (https://github.com/psyto)",
   "license": "Apache-2.0",
@@ -57,7 +58,7 @@
     "node": ">=20"
   },
   "dependencies": {
-    "@mppsol/core": "0.1.0-draft.2",
+    "@mppsol/core": "workspace:^",
     "@noble/curves": "^1.4.0",
     "@scure/base": "^1.1.6"
   },

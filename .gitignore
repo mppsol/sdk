@@ -1,0 +1,25 @@
+.DS_Store
+
+# Node / TypeScript
+node_modules/
+*.log
+npm-debug.log*
+dist/
+build/
+coverage/
+.tsbuildinfo
+
+# Lockfiles from other package managers (we use pnpm)
+package-lock.json
+yarn.lock
+
+# Env / IDE
+.env
+.env.local
+.idea/
+.vscode/
+
+# Changesets
+.changeset/*.md
+!.changeset/README.md
+!.changeset/config.json

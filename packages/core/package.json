@@ -38,11 +38,12 @@
   ],
   "homepage": "https://mppsol.org",
   "bugs": {
-    "url": "https://github.com/mppsol/core/issues"
+    "url": "https://github.com/mppsol/sdk/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mppsol/core.git"
+    "url": "git+https://github.com/mppsol/sdk.git",
+    "directory": "packages/core"
   },
   "author": "psyto <saito.hiroyuki@gmail.com> (https://github.com/psyto)",
   "license": "Apache-2.0",
