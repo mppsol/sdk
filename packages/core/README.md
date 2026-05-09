@@ -1,6 +1,6 @@
-# @mppsol/core
+# @mppsol/core (deprecated)
 
-[![CI](https://github.com/mppsol/core/actions/workflows/ci.yml/badge.svg)](https://github.com/mppsol/core/actions/workflows/ci.yml)
+> **Deprecated 2026-05-09.** Use [`@solana/mpp`](https://www.npmjs.com/package/@solana/mpp) — the official Solana Foundation implementation — instead. Package remains on npm for existing consumers; no new development. See [`mppsol/sdk`](https://github.com/mppsol/sdk) for the deprecation context and migration notes.
 
 Shared TypeScript types and canonical encodings for [MPP.sol](https://mppsol.org) —
 the Machine Payments Protocol on Solana.

@@ -1,47 +1,40 @@
-# mppsol/sdk
+# mppsol/sdk (deprecated)
 
-TypeScript SDK monorepo for [MPP.sol](https://mppsol.org) — Machine Payments Protocol on Solana.
+> **This repository is deprecated as of 2026-05-09.** The published npm packages remain on the registry for existing consumers, but no new development happens here.
+>
+> **For Solana-native HTTP-402 payments**, use [`@solana/mpp`](https://github.com/solana-foundation/mpp-sdk) — the official Solana Foundation implementation, with multi-language SDKs (TypeScript, Rust, Go, Python, Lua) and active development.
+>
+> **For cross-VM settlement (EVM ↔ Solana)** — the gap mppsol now focuses on — see [`mppsol/spec`](https://github.com/mppsol/spec) and [`mppsol/cpi`](https://github.com/mppsol/cpi).
 
-This repo consolidates three previously-separate npm packages into a single workspace so that protocol changes can land atomically across the type definitions, server middleware, and client agent.
+## Why this happened
 
-## Packages
+These packages were created during the Solana Frontier Hackathon (April–May 2026) as the first community Solana-native MPP implementation. On 2026-03-18, the Solana Foundation shipped `@solana/mpp` as the official implementation — broader language coverage, Foundation backing, active maintenance.
 
-| Package | Purpose | npm |
-| --- | --- | --- |
-| [`@mppsol/core`](./packages/core) | Shared types, canonical encodings, receipt format. | `npm i @mppsol/core` |
-| [`@mppsol/server`](./packages/server) | HTTP middleware emitting MPP `402` challenges and verifying Solana payments. Hono adapter included. | `npm i @mppsol/server` |
-| [`@mppsol/agent`](./packages/agent) | Client SDK for paying MPP-priced HTTP resources via Solana. | `npm i @mppsol/agent` |
+Rather than maintain a parallel TS-only implementation in the same space, mppsol repositioned to focus on **cross-VM settlement** — payments originating in EVM contracts (Tempo, Arc, Megaeth) and settling atomically on Solana with on-chain Receipt PDAs. That's the gap the Foundation SDK doesn't address. See [mppsol.org](https://mppsol.org) for the new positioning.
 
-`@mppsol/server` and `@mppsol/agent` both depend on `@mppsol/core` and are versioned independently via [Changesets](https://github.com/changesets/changesets).
+## Packages (frozen at 0.1.0-draft.4)
 
-## Related repos
+| Package | npm |
+| --- | --- |
+| [`@mppsol/core`](./packages/core) | [`0.1.0-draft.4`](https://www.npmjs.com/package/@mppsol/core) — deprecated |
+| [`@mppsol/server`](./packages/server) | [`0.1.0-draft.4`](https://www.npmjs.com/package/@mppsol/server) — deprecated |
+| [`@mppsol/agent`](./packages/agent) | [`0.1.0-draft.4`](https://www.npmjs.com/package/@mppsol/agent) — deprecated |
 
-- [`mppsol/spec`](https://github.com/mppsol/spec) — protocol specification (canonical document).
-- [`mppsol/cpi`](https://github.com/mppsol/cpi) — Solana on-chain program exposing MPP semantics as a CPI target.
+All three deprecated 2026-05-09 with redirect messages on the npm registry pointing to `@solana/mpp`.
 
-## Development
+## Migration
 
-Required toolchain: Node 20+ and `pnpm` 9+.
+| If you were using | Use instead |
+| --- | --- |
+| `@mppsol/core` | [`@solana/mpp`](https://www.npmjs.com/package/@solana/mpp) — covers types and canonical encodings |
+| `@mppsol/server` | [`@solana/mpp`](https://www.npmjs.com/package/@solana/mpp) — server-side charge methods |
+| `@mppsol/agent` | [`@solana/mpp`](https://www.npmjs.com/package/@solana/mpp) — client-side auto-402 + payment links |
 
-```sh
-pnpm install
-pnpm -r build
-pnpm -r test
-```
+The Foundation SDK's API differs from the `@mppsol/*` API. Migration requires real refactoring, not a drop-in replacement. The Foundation README at [`solana-foundation/mpp-sdk`](https://github.com/solana-foundation/mpp-sdk) documents the current shape.
 
-## Releasing
+## Repository disposition
 
-```sh
-pnpm changeset             # describe the change
-git commit -am "feat: ..."  # commit code + changeset together
-git push
-```
-
-CI opens a release PR; merging it bumps versions, updates changelogs, and publishes to npm.
-
-## History
-
-This repo was created on 2026-05-07 by merging the histories of `mppsol/core`, `mppsol/server`, and `mppsol/agent` (now archived) using `git filter-repo` to preserve `git log` and `git blame` for every file.
+This repository **may be archived** in the near future once the npm metadata reflects the deprecation broadly. Git history will remain accessible read-only; commits, PRs, and issues stay queryable.
 
 ## License
 
